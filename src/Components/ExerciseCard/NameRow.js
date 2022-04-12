@@ -9,7 +9,7 @@ const StyledTemplate = styled.div`
   height: 45px;
   width: 100%;
   padding: 0 10px 0 10px;
-  margin-top: 15px;
+  margin-top: 15px;  
 `;
 
 const StyledParagraph = styled.p`
@@ -27,6 +27,9 @@ const StyledInput = styled.input`
   width: 90%;
   margin-left: 22px;
   font-size: 28px;
+  :focus{
+    outline: none;
+  }
 `;
 
 const NameRow = ({ name, title, value, onChange }) => {

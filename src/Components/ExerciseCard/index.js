@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import styled, { css } from "styled-components";
 import CardTop from "./CardTop";
@@ -22,11 +22,51 @@ const CardBottom = styled.div`
   *{  font-size: 20px;}
 `;
 
+const CardRemove = styled.div`  
+  display: flex;
+  margin-top: 25px;
+  height: 40px;
+  padding-left: 10px;
+  flex-direction: row;
+  justify-content: flex-start;
+ 
+  button{
+    width: fit-content;
+    height: fit-content;    
+    color: red;
+    border: none;
+    background-color: transparent;
+    :focus{
+      outline: none;      
+    }
+    :active{
+      transform: scale(1.1);
+    }
+    i{
+      font-size: 28px;
+    }   
+  }
+
+`;
+
 const emptyData = { name: "Exercise name", series: 1, reps: 1, weight: 1 };
 
-const ExerciseEdit = ({ index, last, data = [] }) => {
+const ExerciseEdit = ({ index, last, data = [], setVisible, isVisible, removeAction }) => {
   const [exerciseData, setExerciseData] = useState({ ...data });
-  const [showSettings, setShowSettings] = useState(false);
+
+
+  useEffect(() => {
+    const element = document.getElementById(`card_bottom_${index}`);
+    if (isVisible) {
+      gsap.fromTo(element,
+        { height: 0, duration: 0.3 }, { height: 300, duration: 0.3 });
+    } else {
+      if (element.getBoundingClientRect().height > 0) {
+        gsap.fromTo(element,
+          { height: 270, duration: 0.3 }, { height: 0, duration: 0.3 });
+      }
+    }
+  }, [isVisible]);
 
   const handleOnChange = (evt) => {
     const { name, value } = evt.target;
@@ -45,22 +85,12 @@ const ExerciseEdit = ({ index, last, data = [] }) => {
     }
   };
 
-  const handleShowSettings = () => {
-    if (showSettings) {
-      setShowSettings(false);
-      gsap.to(document.getElementById(`card_bottom_${index}`), { height: 0, duration: 0.3 });
-    } else {
-      setShowSettings(true);
-      gsap.to(document.getElementById(`card_bottom_${index}`), { height: 270, duration: 0.3 });
-    }
-  };
-
   return (
     <CardTemplate last={last}>
       <CardTop
         data={exerciseData}
-        onClick={handleShowSettings}
-        settingsVisible={showSettings}
+        onClick={setVisible}
+        isVisible={isVisible}
       />
       <CardBottom id={`card_bottom_${index}`}>
         <NameRow
@@ -93,7 +123,9 @@ const ExerciseEdit = ({ index, last, data = [] }) => {
           name={"weight"}
           value={exerciseData.weight}
         />
-        <div style={{ height: "25px" }}></div>
+        <CardRemove>
+          <button onClick={removeAction}><i className="fa fa-trash" aria-hidden="true"></i></button>
+        </CardRemove>
       </CardBottom>
     </CardTemplate>
   );

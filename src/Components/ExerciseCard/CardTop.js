@@ -49,7 +49,7 @@ const RightTop = styled.div`
 `;
 
 
-const CardTop = ({ data, onClick, settingsVisible }) => {
+const CardTop = ({ data, onClick, isVisible }) => {
   const { name, series, reps, weight } = data;
 
   return (
@@ -63,7 +63,7 @@ const CardTop = ({ data, onClick, settingsVisible }) => {
         </LeftTop>
         <RightTop>
           <i
-            className={settingsVisible ? "fa fa-angle-up" : "fa fa-angle-down"}
+            className={isVisible ? "fa fa-angle-up" : "fa fa-angle-down"}
             aria-hidden="true"
           ></i>
         </RightTop>

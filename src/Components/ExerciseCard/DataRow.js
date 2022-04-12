@@ -28,6 +28,12 @@ const StyledButton = styled.button`
   height: 35px;
   padding:0;
   margin: 0;
+  :focus{
+    outline: none;
+  }
+  :active{
+    transform: scale(1.1);
+  }
 `;
 
 const StyledInput = styled.input`
