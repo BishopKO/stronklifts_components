@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
 const StyledTemplate = styled.div`
@@ -49,21 +50,21 @@ const RightTop = styled.div`
 `;
 
 
-const CardTop = ({ data, onClick, isVisible }) => {
-  const { name, series, reps, weight } = data;
+const CardTop = ({ name, series, index, reps, weight, setActive, isActive }) => {
+  const active = isActive === index;
 
   return (
     <StyledTemplate>
-      <StyledButton onClick={onClick}>
+      <StyledButton onClick={() => setActive(index)}>
         <LeftTop>
-          <div>{name}</div>
-          <div>
+          <div style={{ filter: "opacity(0.7)" }}>{name}</div>
+          <div style={{ filter: "opacity(0.3)", fontWeight: "bold" }}>
             {series}x{reps} {weight}kg
           </div>
         </LeftTop>
         <RightTop>
           <i
-            className={isVisible ? "fa fa-angle-up" : "fa fa-angle-down"}
+            className={active ? "fa fa-angle-up" : "fa fa-angle-down"}
             aria-hidden="true"
           ></i>
         </RightTop>
@@ -72,4 +73,14 @@ const CardTop = ({ data, onClick, isVisible }) => {
   );
 };
 
-export default CardTop;
+const mapStateToProps = state => {
+  return { isActive: state.activeExercise, data: state.data };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setActive: (index) => dispatch({ type: "SET_ACTIVE", payload: index })
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardTop);

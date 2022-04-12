@@ -3,26 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import ExerciseCard from "../src/Components/ExerciseCard";
-import WorkoutEditCreateView from "../src/Views/WorkoutEditCreateView";
+import { WorkoutEdit_View } from "./Components/ExerciseCard/View";
 import reportWebVitals from "./reportWebVitals";
 
-const Wrapper = () => {
-  const [state, setState] = useState({});
-
-  const handleSetState = (index, value) => {
-
-  };
-
-  return (
-    <div>
-      <WorkoutEditCreateView/>
-    </div>
-  );
-};
 
 ReactDOM.render(
   <React.StrictMode>
-    <Wrapper/>
+    <WorkoutEdit_View/>
   </React.StrictMode>,
   document.getElementById("root")
 );

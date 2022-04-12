@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { gsap } from "gsap";
 import styled, { css } from "styled-components";
 import CardTop from "./CardTop";
@@ -6,97 +7,115 @@ import DataRow from "./DataRow";
 import NameRow from "./NameRow";
 
 const CardTemplate = styled.div`
-  border: 2px solid red;
-  border-bottom: none; 
-  width: 100%;  
+overflow: hidden;
+  //border: 2px solid red;
+  border-bottom: none;
+  width: 100%;
   height: fit-content;
-  
-  ${({ last }) => last && css`
-    border-bottom: 2px solid red;
+  ${({ disable }) => disable && css`
+   filter: opacity(0.5);
 `}
 `;
 
-const CardBottom = styled.div`  
+const CardBottom = styled.div`
   height: 0;
   overflow: hidden;
-  *{  font-size: 20px;}
+  * {
+    font-size: 20px;
+  }
 `;
 
-const CardRemove = styled.div`  
+const CardRemove = styled.div`
   display: flex;
   margin-top: 25px;
-  height: 40px;
-  padding-left: 10px;
+  height: 40px;  
   flex-direction: row;
-  justify-content: flex-start;
- 
-  button{
-    width: fit-content;
-    height: fit-content;    
+  justify-content: center;
+  width: 100%; 
+
+  button {
+    width: 100%;
+    height: fit-content;
     color: red;
     border: none;
-    background-color: transparent;
-    :focus{
-      outline: none;      
+    border-radius: 5px;
+    background-color: rgba(255,129,133,0.53);
+    filter: opacity(0.7);
+    :focus {
+      outline: none;
     }
-    :active{
+    :active {
       transform: scale(1.1);
     }
-    i{
+    i {
       font-size: 28px;
-    }   
+    }
   }
-
 `;
 
-const emptyData = { name: "Exercise name", series: 1, reps: 1, weight: 1 };
-
-const ExerciseEdit = ({ index, last, data = [], setVisible, isVisible, removeAction }) => {
-  const [exerciseData, setExerciseData] = useState({ ...data });
-
+const ExerciseEdit = ({
+                        state,
+                        index,
+                        updateData,
+                        removeExercise
+                      }) => {
 
   useEffect(() => {
     const element = document.getElementById(`card_bottom_${index}`);
-    if (isVisible) {
+    const animDuration = 0.5;
+
+    if (state.activeExercise === index) {
       gsap.fromTo(element,
-        { height: 0, duration: 0.3 }, { height: 300, duration: 0.3 });
+        { height: 0, duration: animDuration }, { height: 300, duration: animDuration });
     } else {
       if (element.getBoundingClientRect().height > 0) {
         gsap.fromTo(element,
-          { height: 270, duration: 0.3 }, { height: 0, duration: 0.3 });
+          { height: 300, duration: animDuration }, { height: 0, duration: animDuration });
       }
     }
-  }, [isVisible]);
+  }, [state.activeExercise, state.data, index]);
+
+  const data = state.data[index];
 
   const handleOnChange = (evt) => {
-    const { name, value } = evt.target;
-    setExerciseData({ ...exerciseData, [name]: value });
+    let { name, value } = evt.target;
+    if (["series", "reps", "weight"].includes(name)) {
+      updateData(index, name, isNaN(value) ? data[name] : value);
+    } else {
+      updateData(index, name, value);
+    }
   };
 
   const handleIncrement = (name) => {
-    const tmpValue = parseInt(exerciseData[name]);
-    setExerciseData({ ...exerciseData, [name]: tmpValue + 1 });
+    const currentValue = parseInt(data[name]);
+    const newValue = isNaN(currentValue) ? "" : currentValue + 1;
+    updateData(index, name, newValue);
   };
 
   const handleDecrement = (name) => {
-    const tmpValue = parseInt(exerciseData[name]);
-    if (tmpValue > 1) {
-      setExerciseData({ ...exerciseData, [name]: tmpValue - 1 });
+    const currentValue = data[name];
+    if (currentValue > 1) {
+      updateData(index, name, currentValue - 1);
     }
   };
+  const handleRemove = () => {
+    const element = document.getElementById(`card_${index}`);
+    gsap.to(element, { height: 0, duration: 0.4 }).then(() => {
+      removeExercise(index);
+    });
+
+  };
+  const { name, series, reps, weight } = data;
+  const { activeExercise } = state;
 
   return (
-    <CardTemplate last={last}>
-      <CardTop
-        data={exerciseData}
-        onClick={setVisible}
-        isVisible={isVisible}
-      />
+    <CardTemplate id={`card_${index}`} disable={activeExercise !== null && activeExercise !== index}>
+      <CardTop name={name} series={series} reps={reps} weight={weight} index={index}/>
       <CardBottom id={`card_bottom_${index}`}>
         <NameRow
           title={"Name"}
           name={"name"}
-          value={exerciseData.name}
+          value={name}
           onChange={handleOnChange}
         />
         <DataRow
@@ -105,7 +124,7 @@ const ExerciseEdit = ({ index, last, data = [], setVisible, isVisible, removeAct
           handleDecrement={() => handleDecrement("series")}
           title={"Series"}
           name={"series"}
-          value={exerciseData.series}
+          value={series}
         />
         <DataRow
           onChange={handleOnChange}
@@ -113,7 +132,7 @@ const ExerciseEdit = ({ index, last, data = [], setVisible, isVisible, removeAct
           handleDecrement={() => handleDecrement("reps")}
           title={"Reps"}
           name={"reps"}
-          value={exerciseData.reps}
+          value={reps}
         />
         <DataRow
           onChange={handleOnChange}
@@ -121,14 +140,29 @@ const ExerciseEdit = ({ index, last, data = [], setVisible, isVisible, removeAct
           handleDecrement={() => handleDecrement("weight")}
           title={"Weight"}
           name={"weight"}
-          value={exerciseData.weight}
+          value={weight}
         />
         <CardRemove>
-          <button onClick={removeAction}><i className="fa fa-trash" aria-hidden="true"></i></button>
+          <button onClick={handleRemove}>Remove
+          </button>
         </CardRemove>
       </CardBottom>
     </CardTemplate>
   );
 };
 
-export default ExerciseEdit;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateData: (exercise_number, name, value) =>
+      dispatch({
+        type: "UPDATE_DATA",
+        payload: { exercise_number: exercise_number, name: name, value: value }
+      }),
+    removeExercise: (index) => dispatch({ type: "REMOVE_EXERCISE", payload: index })
+  };
+};
+
+const mapStateToProps = (state) => {
+  return { state };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ExerciseEdit);
