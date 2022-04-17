@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import TopBar from "../atoms/TopBar";
 import WorkoutName from "../atoms/WorkoutName";
 import ExerciseCard from "../ExerciseCard";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -11,6 +11,7 @@ const StyledWrapper = styled.div`
   align-items: center;
   width: 100%;
   padding-top: 70px;
+  overflow: auto;
 `;
 
 const StyledButton = styled.button`
@@ -53,6 +54,11 @@ const blurOnEnter = (evt) => evt.keyCode === 13 && evt.target.blur();
 
 const GenerateCards = ({ state, addExercise }) => {
   const { data, workoutName } = state;
+
+  const handleAddExercise = () => {
+    addExercise();
+  };
+
   return (
     <div style={{ position: "relative" }}>
       <TopBar/>
@@ -82,7 +88,7 @@ const GenerateCards = ({ state, addExercise }) => {
           ))}
         </div>
         <StyledFader/>
-        <StyledButton onClick={addExercise}>Add</StyledButton>
+        <StyledButton onClick={handleAddExercise}>Add</StyledButton>
       </StyledWrapper>
     </div>
   );

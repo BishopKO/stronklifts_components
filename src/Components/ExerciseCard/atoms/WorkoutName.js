@@ -7,24 +7,24 @@ const StyledDiv_StyledWrapper = styled.div`
   width: 100%;
   flex-direction: row;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   border: 1px solid var(--black);
-  border-radius: 5px;  
-  margin: 20px 0 20px 0;  
+  border-radius: 5px;
+  margin: 20px 0 20px 0;
 
   :focus-within {
     i {
-      display:none;      
+      display: none;
     }
   }
 
   div:nth-child(2) {
     position: absolute;
     right: 15px;
-    i {    
+    i {
       font-size: 24px;
-      filter: opacity(0.8); 
-      }
+      filter: opacity(0.8);
+    }
   }
 `;
 
@@ -40,7 +40,7 @@ const StyledInput_WorkoutName = styled.input`
   filter: opacity(0.8);
   text-overflow: ellipsis;
   :focus {
-    outline: none;  
+    outline: none;
     filter: opacity(1);
     width: 100%;
   }
@@ -55,16 +55,25 @@ const WorkoutName = ({ value, setWorkoutName, isOrderMode }) => {
   };
 
   return (
-    <div style={{ width: "100%", height: isOrderMode ? "0" : "110px", overflow: "hidden" }}>
-      <div style={{
+    <div
+      style={{
         width: "100%",
-        height: "20px",
-        marginTop: "10px",
-        paddingLeft: "5px",
-        fontSize: "22px",
-        textAlign: "center",
-        color: "var(--lightBlack)"
-      }}>
+        height: isOrderMode ? "0" : "110px",
+        overflow: "hidden",
+        transition: "0.4s"
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          height: "20px",
+          marginTop: "10px",
+          paddingLeft: "5px",
+          fontSize: "22px",
+          textAlign: "center",
+          color: "var(--lightBlack)"
+        }}
+      >
         Workout Name:
       </div>
       <StyledDiv_StyledWrapper>
@@ -76,15 +85,17 @@ const WorkoutName = ({ value, setWorkoutName, isOrderMode }) => {
             placeholder={"Workout name..."}
           />
         </div>
-        <div>{!isOrderMode &&
-        <i className="fa fa-keyboard-o" aria-hidden="true"></i>}
+        <div>
+          {!isOrderMode && (
+            <i className="fa fa-keyboard-o" aria-hidden="true"></i>
+          )}
         </div>
       </StyledDiv_StyledWrapper>
     </div>
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     isOrderMode: state.orderMode
   };

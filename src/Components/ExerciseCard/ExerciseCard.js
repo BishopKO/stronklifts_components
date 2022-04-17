@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { gsap } from "gsap";
 import styled, { css } from "styled-components";
@@ -9,7 +9,7 @@ import NameRow from "./NameRow";
 const CardTemplate = styled.div`
   overflow: hidden;
   border-bottom: none;
-  width: 100%;  
+  width: 100%;
   margin-bottom: 0;
   ${({ disable }) =>
   disable &&
@@ -23,12 +23,12 @@ const CardBottom = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   max-height: 0;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
   overflow: hidden;
-   
+
   ${({ active }) =>
   active &&
-  css`        
+  css`      
       max-height: 300px;
     `}
 `;
@@ -64,6 +64,8 @@ const CardRemove = styled.div`
 
 const ExerciseCard = ({ state, index, updateData, removeExercise }) => {
   const { data, activeExercise } = state;
+  const ref = useRef();
+
 
   const handleOnChange = (evt) => {
     let { name, value } = evt.target;
@@ -95,9 +97,10 @@ const ExerciseCard = ({ state, index, updateData, removeExercise }) => {
   const { name, series, reps, weight } = data[index];
 
   return (
-    <CardTemplate
-      id={`card_${index}`}
-      disable={activeExercise !== null && activeExercise !== index}
+    <CardTemplate ref={ref}
+                  ref={ref}
+                  id={`card_${index}`}
+                  disable={activeExercise !== null && activeExercise !== index}
     >
       <CardTop
         name={name}
