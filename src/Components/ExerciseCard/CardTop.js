@@ -1,13 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useRedux_Dispatch, useRedux_State } from "./CardTop_hooks";
 import styled, { css } from "styled-components";
+import * as PropTypes from "prop-types";
+import NameRow from "./NameRow";
 
 const StyledTemplate = styled.div`
   border-bottom: 1px solid var(--red);
-  width: 100%;    
+  width: 100%;
   background-color: white;
   font-size: 30px;
-  overflow: hidden;  
+  overflow: hidden;
   padding: 5px 0 5px 0;
   ${({ orderMode }) =>
   orderMode &&
@@ -19,7 +21,7 @@ const StyledTemplate = styled.div`
 const StyledButton = styled.button`
   display: grid;
   grid-template-columns: 90% 10%;
-  width: 100%; 
+  width: 100%;
   margin: 0;
   border: none;
   background-color: white;
@@ -36,11 +38,12 @@ const LeftTop = styled.div`
   align-items: flex-start;
   div:nth-child(1) {
     width: 100%;
-    font-size: 24px;
+    font-size: 22px;
     color: var(--black);
     text-overflow: ellipsis;
     text-align: left;
     overflow: hidden;
+    word-break: break-all;
   }
   div:nth-child(2) {
     font-size: 16px;
@@ -59,36 +62,32 @@ const RightTop = styled.div`
   }
 `;
 
-const CardTop = ({
-                   name,
-                   series,
-                   index,
-                   reps,
-                   weight,
-                   activeExercise,
-                   setActive,
-                   orderMode,
-                   setMoveStart,
-                   setMoveEnd,
-                   moveStart
-                 }) => {
+const CardTop = ({ name, series, index, reps, weight }) => {
+  const [orderMode, moveStart, activeExercise] = useRedux_State();
+  const [setActive, setMoveStart, setMoveEnd] = useRedux_Dispatch();
+
   const handleOnClick = () => {
-    if (moveStart !== null) {
-      setMoveEnd(index);
-    } else {
-      if (orderMode) {
-        setMoveStart(index);
-      } else {
-        setActive(index);
-      }
-    }
+    const isOrderMode = () => {
+      orderMode === true ? setMoveStart(index) : setActive(index);
+    };
+    moveStart !== null ? setMoveEnd(index) : isOrderMode();
   };
 
   return (
     <StyledTemplate orderMode={moveStart !== index && orderMode}>
       <StyledButton onClick={handleOnClick}>
-        <LeftTop>
-          <div><span>{name}</span></div>
+        <LeftTop
+          style={{
+            height: "4rem",
+            textOverflow: "ellipsis",
+            width: "95%",
+            overflow: "hidden",
+            whiteSpace: "noWrap"
+          }}
+        >
+          <div>
+            <span>{name}</span>
+          </div>
           <div style={{ color: "var(--lightBlack)", fontWeight: "bold" }}>
             {series}x{reps} {weight}kg
           </div>
@@ -106,19 +105,12 @@ const CardTop = ({
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setActive: (index) => dispatch({ type: "SET_ACTIVE", payload: index }),
-    setMoveStart: (index) => dispatch({ type: "SET_MOVE_START", payload: index }),
-    setMoveEnd: (index) => dispatch({ type: "SET_MOVE_END", payload: index })
-  };
+CardTop.propTypes = {
+  name: PropTypes.string,
+  series: PropTypes.number,
+  index: PropTypes.number,
+  reps: PropTypes.number,
+  weight: PropTypes.number
 };
 
-const mapStateToProps = (state) => {
-  return {
-    orderMode: state.orderMode,
-    moveStart: state.moveStart
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardTop);
+export default CardTop;

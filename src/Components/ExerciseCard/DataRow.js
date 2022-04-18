@@ -51,12 +51,10 @@ const StyledDiv = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  //padding-right: 1/0px;
 `;
 
 
 const DataRowWithButtons = ({ name, title, value, onChange, handleIncrement, handleDecrement }) => {
-
 
   return (
     <StyledTemplate>

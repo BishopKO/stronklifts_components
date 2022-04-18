@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import * as PropTypes from "prop-types";
 
 const StyledTemplate = styled.div`
   display: grid;
@@ -36,8 +37,11 @@ const StyledInput = styled.input`
   }
 `;
 
-const NameRow = ({ autoFocus, name, title, value, onChange }) => {
+const NameRow = ({ name, title, value, onChange }) => {
+  console.log("name row render");
+
   return (
+
     <StyledTemplate>
       <StyledParagraph>{title}:</StyledParagraph>
       <div>
@@ -49,10 +53,17 @@ const NameRow = ({ autoFocus, name, title, value, onChange }) => {
           onChange={onChange}
           type="text"
         />
-        {/*<i className="fa fa-keyboard-o" aria-hidden="true"></i>*/}
       </div>
     </StyledTemplate>
   );
+};
+
+NameRow.propTypes = {
+  name: PropTypes.string,
+  title: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func
+
 };
 
 export default NameRow;

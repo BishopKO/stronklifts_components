@@ -1,8 +1,8 @@
-import { connect } from "react-redux";
+import React from "react";
+import useHandleData from "./GenerateCard_hooks";
 import TopBar from "../atoms/TopBar";
 import WorkoutName from "../atoms/WorkoutName";
 import ExerciseCard from "../ExerciseCard";
-import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
@@ -50,12 +50,12 @@ const StyledFader = styled.div`
   background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(188,188,188,0.61));
 `;
 
-const blurOnEnter = (evt) => evt.keyCode === 13 && evt.target.blur();
 
-const GenerateCards = ({ state, addExercise }) => {
-  const { data, workoutName } = state;
+const GenerateCards = () => {
+  const [data, workoutName, addExercise] = useHandleData();
 
   const handleAddExercise = () => {
+    window.scrollTo(0, window.innerHeight);
     addExercise();
   };
 
@@ -67,7 +67,6 @@ const GenerateCards = ({ state, addExercise }) => {
           <WorkoutName
             value={workoutName}
             placeholder={"Workout Name"}
-            onKeyDown={(evt) => blurOnEnter(evt)}
           />
         </StyledRow>
         <div
@@ -94,14 +93,4 @@ const GenerateCards = ({ state, addExercise }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { state };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addExercise: () => dispatch({ type: "ADD_EXERCISE", payload: null })
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(GenerateCards);
+export default GenerateCards;

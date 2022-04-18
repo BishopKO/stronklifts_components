@@ -1,19 +1,14 @@
 import React from "react";
-import { Provider, connect } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import store from "../reducer/store";
 import GenerateCards from "./GenerateCards";
 import * as PropTypes from "prop-types";
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setData: (data) => dispatch({ type: "SET_WORKOUT_DATA", payload: data })
-  };
+
+const SetReduxData = ({ data = [] }) => {
+  const dispatch = useDispatch();
+  dispatch({ type: "SET_WORKOUT_DATA", payload: data });
 };
-
-const SetReduxData = connect(null, mapDispatchToProps)(({ setData, data = [] }) => {
-  setData(data);
-});
-
 
 const WorkoutEdit_View = () => {
   return (
@@ -31,3 +26,5 @@ SetReduxData.propTypes = {
   setData: PropTypes.func
 };
 export default WorkoutEdit_View;
+
+

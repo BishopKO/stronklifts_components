@@ -8,8 +8,11 @@ const initState = {
   workoutName: ""
 };
 
-
 const reducer = (state = initState, action) => {
+  window.reduxState = function() {
+    return state;
+  };
+
   switch (action.type) {
     case "UPDATE_DATA": {
       const { exercise_number, name, value } = action.payload;
@@ -20,13 +23,13 @@ const reducer = (state = initState, action) => {
       const index = action.payload;
       if (index === state.activeExercise) {
         return {
-          ...state, activeExercise: null
+          ...state,
+          activeExercise: null
         };
       }
       return { ...state, activeExercise: index };
     }
     case "SET_WORKOUT_DATA": {
-      console.log("set_data", action.payload);
       return state;
     }
     case "REMOVE_EXERCISE": {
@@ -40,19 +43,30 @@ const reducer = (state = initState, action) => {
     case "ADD_EXERCISE": {
       const tmpData = [...state.data, returnEmptyExercise(state)];
       return {
-        ...state, data: [...tmpData], activeExercise: null
+        ...state,
+        data: [...tmpData],
+        activeExercise: null
       };
     }
-    case "ALLOW_ORDER_MODE" : {
-      return { ...state, orderMode: !state.orderMode, activeExercise: null, moveStart: null };
+    case "ALLOW_ORDER_MODE": {
+      return {
+        ...state,
+        orderMode: !state.orderMode,
+        activeExercise: null,
+        moveStart: null
+      };
     }
     case "SET_MOVE_START": {
       return {
-        ...state, moveStart: action.payload
+        ...state,
+        moveStart: action.payload
       };
     }
     case "SET_MOVE_END": {
-      const [start, stop] = [parseInt(state.moveStart), parseInt(action.payload)];
+      const [start, stop] = [
+        parseInt(state.moveStart),
+        parseInt(action.payload)
+      ];
       const tmpData = state.data[start];
       state.data[start] = state.data[stop];
       state.data[stop] = tmpData;
@@ -64,7 +78,8 @@ const reducer = (state = initState, action) => {
     case "SET_WORKOUT_NAME":
       const value = action.payload;
       return {
-        ...state, workoutName: value
+        ...state,
+        workoutName: value
       };
     default:
       return { ...state };

@@ -2,6 +2,7 @@
   <dictionary name="Bishop">
     <words>
       <w>fader</w>
+      <w>gsap</w>
     </words>
   </dictionary>
 </component>

@@ -7,7 +7,6 @@ export const returnWorkoutData = (length) => {
 };
 
 export const returnEmptyExercise = (state) => {
-  // TODO: Generate name, highest number + 1
   let tmpName = `Exercise name ${state.data.length + 1}`;
   return { name: tmpName, series: 1, reps: 1, weight: 1, key: uuid() };
 };

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import ExerciseCard from "./Components/ExerciseCard/ExerciseCard";
@@ -7,12 +7,11 @@ import WorkoutEdit_View from "./Components/ExerciseCard/View";
 
 import reportWebVitals from "./reportWebVitals";
 
-
-ReactDOM.render(
-  <React.StrictMode>
+const root = createRoot(document.getElementById("root"));
+root.render(
+  <StrictMode>
     <WorkoutEdit_View/>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
