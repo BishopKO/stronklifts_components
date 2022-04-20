@@ -68,7 +68,7 @@ const autoScroll = (ref) => setTimeout(() => {
     const difference = top - window.innerHeight + 50;
     window.scrollTo({ top: window.pageYOffset + difference, behavior: "smooth" });
   }
-}, 300);
+}, 400);
 
 const ExerciseCard = ({ index }) => {
     const [handleOnChange, handleIncrement, handleDecrement, handleRemove] =

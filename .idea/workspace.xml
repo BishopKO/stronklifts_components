@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0baa2053-ca5a-4f33-a5ab-17de3c96a324" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +31,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="814">
-              <caret line="134" column="19" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
+            <state relative-caret-position="877">
+              <caret line="84" column="7" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
               <folding>
-                <marker date="1650448362241" expanded="true" signature="332:1230" ph="..." />
-                <marker date="1650448362241" expanded="true" signature="333:447" ph="..." />
+                <marker date="1650456648958" expanded="true" signature="332:1230" ph="..." />
+                <marker date="1650456648958" expanded="true" signature="333:447" ph="..." />
               </folding>
             </state>
           </provider>
@@ -43,8 +44,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+            <state relative-caret-position="200">
+              <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+              <folding>
+                <element signature="e#4#127#0" />
+                <element signature="e#4#309#0" />
+                <element signature="e#212#236#0" />
+                <element signature="e#248#307#0" />
+                <element signature="e#4#96#0" />
+                <element signature="e#4#169#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state>
               <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
             </state>
           </provider>
@@ -69,7 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>grey</find>
       <find>console</find>
       <find>setV</find>
       <find>consol</find>
@@ -99,6 +107,7 @@
       <find>:root</find>
       <find>--red</find>
       <find>color</find>
+      <find>Workout E</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -139,8 +148,8 @@
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/DataRow.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/CardTop_hooks.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/CardTop.js" />
-        <option value="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js" />
       </list>
     </option>
@@ -219,7 +228,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Bishop\PycharmProjects\stronklifts__components\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -275,12 +284,13 @@
       <workItem from="1650176591092" duration="944000" />
       <workItem from="1650177582387" duration="8298000" />
       <workItem from="1650444822322" duration="935000" />
-      <workItem from="1650445781095" duration="3631000" />
+      <workItem from="1650445781095" duration="5986000" />
+      <workItem from="1650457588946" duration="319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176363000" />
+    <option name="totallyTimeSpent" value="179037000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -295,17 +305,17 @@
     <frame x="-7" y="0" width="1379" height="1407" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.707856" visible="true" weight="0.27722773" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.707856" visible="true" weight="0.2817974" />
       <window_info id="Structure" order="1" sideWeight="0.29214403" side_tool="true" weight="0.21008404" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32902184" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23039612" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23039612" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32978722" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32902184" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
@@ -503,28 +513,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
+    <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="877">
+          <caret line="84" column="7" lean-forward="true" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
+          <folding>
+            <marker date="1650456648958" expanded="true" signature="332:1230" ph="..." />
+            <marker date="1650456648958" expanded="true" signature="333:447" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js">
+    <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="134" column="19" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
-          <folding>
-            <marker date="1650448362241" expanded="true" signature="332:1230" ph="..." />
-            <marker date="1650448362241" expanded="true" signature="333:447" ph="..." />
-          </folding>
+        <state>
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+        <state relative-caret-position="200">
+          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+          <folding>
+            <element signature="e#4#127#0" />
+            <element signature="e#4#309#0" />
+            <element signature="e#212#236#0" />
+            <element signature="e#248#307#0" />
+            <element signature="e#4#96#0" />
+            <element signature="e#4#169#0" />
+          </folding>
         </state>
       </provider>
     </entry>

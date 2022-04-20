@@ -55,9 +55,13 @@ const GenerateCards = () => {
   const [data, workoutName, addExercise] = useHandleData();
 
   const handleAddExercise = () => {
-    window.scrollTo(0, document.body.scrollHeight);
-    addExercise();
-  };
+      addExercise();
+      setTimeout(() => {
+        window.scrollTo({ top: document.body.scrollHeight + 500, behavior: "smooth" });
+      }, 200);
+    }
+
+  ;/*TODO: Make scroll only for exercises*/
 
   return (
     <div style={{ position: "relative" }}>
@@ -69,6 +73,7 @@ const GenerateCards = () => {
             placeholder={"Workout Name"}
           />
         </StyledRow>
+
         <div
           style={{
             width: "100%",
@@ -81,16 +86,18 @@ const GenerateCards = () => {
         >
           Workout Exercises:
         </div>
-        <div style={{ marginBottom: "55px", width: "100%" }}>
+
+        {/*<div style={{ width: "100%", position: "fixed", height: "500px", top: "200px", overflow: "scroll" }}>*/}
+        <div style={{ marginBottom: "55px", width: "100%", overflow: "scroll" }}>
           {data.map((exercise, index) => (
             <ExerciseCard index={index} key={exercise.key}/>
           ))}
         </div>
         <StyledFader/>
         <StyledButton onClick={handleAddExercise}>Add</StyledButton>
+        {/*</div>*/}
       </StyledWrapper>
     </div>
   );
 };
-
 export default GenerateCards;
