@@ -19,9 +19,9 @@ const StyledButton = styled.button`
   min-width: 100%;
   height: 50px;
   border: none;
-  border-top: 1px solid var(--green);
-  color: var(--green);
-  background-color: white; 
+  border-top: 1px solid var(--blue);
+  color: var(--white);
+  background-color: var(--blue); 
   font-size: 22px;
   bottom: 0;
 
@@ -55,7 +55,7 @@ const GenerateCards = () => {
   const [data, workoutName, addExercise] = useHandleData();
 
   const handleAddExercise = () => {
-    window.scrollTo(0, window.innerHeight);
+    window.scrollTo(0, document.body.scrollHeight);
     addExercise();
   };
 
@@ -81,7 +81,7 @@ const GenerateCards = () => {
         >
           Workout Exercises:
         </div>
-        <div style={{ marginBottom: "50px", width: "100%" }}>
+        <div style={{ marginBottom: "55px", width: "100%" }}>
           {data.map((exercise, index) => (
             <ExerciseCard index={index} key={exercise.key}/>
           ))}

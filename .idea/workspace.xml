@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0baa2053-ca5a-4f33-a5ab-17de3c96a324" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,30 +27,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
+            <state relative-caret-position="814">
+              <caret line="134" column="19" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
               <folding>
                 <marker date="1650448362241" expanded="true" signature="332:1230" ph="..." />
-                <marker date="1650448362241" expanded="false" signature="333:447" ph="..." />
+                <marker date="1650448362241" expanded="true" signature="333:447" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/atoms/WorkoutName.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
-              <folding>
-                <element signature="e#2095#2147#0" />
-                <element signature="e#2106#2144#0" />
-                <element signature="e#2190#2301#0" />
-                <element signature="e#2201#2298#0" />
-              </folding>
+            <state relative-caret-position="774">
+              <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -131,13 +135,13 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard_hooks.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/reducer/index.js" />
-        <option value="$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/NameRow.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/DataRow.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/CardTop_hooks.js" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/CardTop.js" />
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js" />
       </list>
     </option>
   </component>
@@ -181,6 +185,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Components" type="462c0819:PsiDirectoryNode" />
               <item name="ExerciseCard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="stronklifts__components" type="b2602c69:ProjectViewProjectNode" />
+              <item name="stronklifts__components" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+              <item name="ExerciseCard" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -263,12 +275,12 @@
       <workItem from="1650176591092" duration="944000" />
       <workItem from="1650177582387" duration="8298000" />
       <workItem from="1650444822322" duration="935000" />
-      <workItem from="1650445781095" duration="2568000" />
+      <workItem from="1650445781095" duration="3631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175300000" />
+    <option name="totallyTimeSpent" value="176363000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -297,7 +309,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.196443" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.196443" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32978722" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -467,13 +479,6 @@
     <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/CardTop_hooks.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="85" column="18" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/CardTop.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
@@ -482,13 +487,6 @@
             <element signature="e#0#26#0" expanded="true" />
             <marker date="1650446494020" expanded="true" signature="219:308" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -505,14 +503,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/ExerciseCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="82" column="22" selection-start-line="82" selection-start-column="22" selection-end-line="82" selection-end-column="22" />
+        <state relative-caret-position="814">
+          <caret line="134" column="19" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="19" />
           <folding>
             <marker date="1650448362241" expanded="true" signature="332:1230" ph="..." />
-            <marker date="1650448362241" expanded="false" signature="333:447" ph="..." />
+            <marker date="1650448362241" expanded="true" signature="333:447" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/ExerciseCard/View/GenerateCards.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
         </state>
       </provider>
     </entry>
