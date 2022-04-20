@@ -45,10 +45,10 @@ const CardRemove = styled.div`
   button {
     width: 100%;
     height: 40px;
-    color: var(--red);
+    color: var(--white);
     border: none;
     border-radius: 5px;
-    background-color: var(--lightRed);
+    background-color: var(--red);
     filter: opacity(0.7);
     :focus {
       outline: none;
@@ -69,6 +69,20 @@ const ExerciseCard = ({ index }) => {
     const [data, activeExercise] = useRedux_State(index);
     const { name, series, reps, weight } = data;
 
+    const ref = useRef();
+
+    useEffect(() => {
+      if (index === activeExercise) {
+        // Make card visible if is outside the viewport
+        setTimeout(() => {
+          const { top, height } = ref.current.getBoundingClientRect();
+          if (top > window.innerHeight) {
+            const difference = top - window.innerHeight + 50;
+            window.scrollTo({ top: window.pageYOffset + difference, behavior: "smooth" });
+          }
+        }, 400);
+      }
+    });
 
     return (
       <>
@@ -104,6 +118,7 @@ const ExerciseCard = ({ index }) => {
               handleIncrement={() => handleIncrement("reps")}
               handleDecrement={() => handleDecrement("reps")}
               title={"Reps"}
+              series={series}
               name={"reps"}
               value={reps}
             />
@@ -118,6 +133,7 @@ const ExerciseCard = ({ index }) => {
             <CardRemove>
               <button onClick={handleRemove}>Remove</button>
             </CardRemove>
+            <div ref={ref}></div>
           </CardBottom>
         </CardTemplate>
       </>

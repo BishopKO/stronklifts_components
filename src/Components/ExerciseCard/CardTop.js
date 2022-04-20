@@ -88,7 +88,7 @@ const CardTop = ({ name, series, index, reps, weight }) => {
           <div>
             <span>{name}</span>
           </div>
-          <div style={{ color: "var(--lightBlack)", fontWeight: "bold" }}>
+          <div style={{ color: "var(--grey)" }}>
             {series}x{reps} {weight}kg
           </div>
         </LeftTop>

@@ -53,13 +53,28 @@ const StyledDiv = styled.div`
   align-items: center;
 `;
 
+const RepsComponent = ({ series }) => {
+  return (
+    <div>
+      <select>
+        {Array(series).fill(0).map((item, index) => (
+          <option value={index}>{index}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
 
-const DataRowWithButtons = ({ name, title, value, onChange, handleIncrement, handleDecrement }) => {
+
+const DataRowWithButtons = ({ name, series, title, value, onChange, handleIncrement, handleDecrement }) => {
 
   return (
     <StyledTemplate>
       <StyledParagraph>{title}:</StyledParagraph>
       <StyledDiv>
+        {/*TODO*/}
+        {name === "reps" && <RepsComponent series={series}/>}
+
         <StyledButton onClick={handleDecrement}>-</StyledButton>
         <StyledInput
           name={name}

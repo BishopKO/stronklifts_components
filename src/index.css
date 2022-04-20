@@ -1,7 +1,9 @@
 :root {
-    --red: rgb(255, 0, 0);
+    --red: #d2302d;
     --green: rgb(0, 177, 36);
-    --black: rgba(0, 0, 0, 0.8);
+    --black: #5a5b5a;
+    --white: #ebeaea;
+    --grey: #afafae;
     --lightBlack: rgba(0, 0, 0, 0.4);
     --lightRed: rgba(250, 0, 0, 0.3);
 }
