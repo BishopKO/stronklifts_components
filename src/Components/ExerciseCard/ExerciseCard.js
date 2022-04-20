@@ -25,7 +25,6 @@ const CardBottom = styled.div`
   transition: all 0.3s ease-in;
   overflow: hidden;
 
-
   ${({ active }) =>
   active &&
   css`
@@ -63,6 +62,14 @@ const CardRemove = styled.div`
 `;
 ;
 
+const autoScroll = (ref) => setTimeout(() => {
+  const { top, height } = ref.current.getBoundingClientRect();
+  if (top > window.innerHeight) {
+    const difference = top - window.innerHeight + 50;
+    window.scrollTo({ top: window.pageYOffset + difference, behavior: "smooth" });
+  }
+}, 300);
+
 const ExerciseCard = ({ index }) => {
     const [handleOnChange, handleIncrement, handleDecrement, handleRemove] =
       useRedux_Dispatch(index);
@@ -73,14 +80,7 @@ const ExerciseCard = ({ index }) => {
 
     useEffect(() => {
       if (index === activeExercise) {
-        // Make card visible if is outside the viewport
-        setTimeout(() => {
-          const { top, height } = ref.current.getBoundingClientRect();
-          if (top > window.innerHeight) {
-            const difference = top - window.innerHeight + 50;
-            window.scrollTo({ top: window.pageYOffset + difference, behavior: "smooth" });
-          }
-        }, 400);
+        autoScroll(ref);
       }
     });
 
