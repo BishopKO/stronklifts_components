@@ -38,10 +38,8 @@ const StyledInput = styled.input`
 `;
 
 const NameRow = ({ name, title, value, onChange }) => {
-  console.log("name row render");
 
   return (
-
     <StyledTemplate>
       <StyledParagraph>{title}:</StyledParagraph>
       <div>

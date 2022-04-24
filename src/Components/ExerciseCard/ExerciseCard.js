@@ -60,87 +60,90 @@ const CardRemove = styled.div`
     }
   }
 `;
-;
-
-const autoScroll = (ref) => setTimeout(() => {
-  const { top, height } = ref.current.getBoundingClientRect();
-  if (top > window.innerHeight) {
-    const difference = top - window.innerHeight + 50;
-    window.scrollTo({ top: window.pageYOffset + difference, behavior: "smooth" });
-  }
-}, 400);
+const autoScroll = (ref) =>
+  setTimeout(() => {
+    const { top, height } = ref.current.getBoundingClientRect();
+    if (top > window.innerHeight) {
+      const difference = top - window.innerHeight + 50;
+      window.scrollTo({
+        top: window.pageYOffset + difference,
+        behavior: "smooth"
+      });
+    }
+  }, 400);
 
 const ExerciseCard = ({ index }) => {
-    const [handleOnChange, handleIncrement, handleDecrement, handleRemove] =
-      useRedux_Dispatch(index);
-    const [data, activeExercise] = useRedux_State(index);
-    const { name, series, reps, weight } = data;
+  const [handleOnChange, handleIncrement, handleDecrement, handleRemove] =
+    useRedux_Dispatch(index);
+  const [data, activeExercise] = useRedux_State(index);
+  const { name, series, reps, weight } = data;
 
-    const ref = useRef();
+  const ref = useRef();
 
-    useEffect(() => {
-      if (index === activeExercise) {
-        autoScroll(ref);
-      }
-    });
+  useEffect(() => {
+    if (index === activeExercise) {
+      autoScroll(ref);
+    }
+  });
 
-    return (
-      <>
-        <CardTemplate
-          id={`card_${index}`}
-          disable={activeExercise !== null && activeExercise !== index}
+  return (
+    <>
+      <CardTemplate
+        id={`card_${index}`}
+        disable={activeExercise !== null && activeExercise !== index}
+      >
+        <CardTop
+          name={name}
+          activeExercise={activeExercise}
+          series={series}
+          reps={reps}
+          weight={weight}
+          index={index}
+        />
+        <CardBottom
+          id={`card_bottom_${index}`}
+          active={activeExercise === index}
         >
-          <CardTop
-            name={name}
-            activeExercise={activeExercise}
-            series={series}
-            reps={reps}
-            weight={weight}
-            index={index}
+          <NameRow
+            onChange={handleOnChange}
+            title={"Name"}
+            name={"name"}
+            value={name}
           />
-          <CardBottom id={`card_bottom_${index}`} active={activeExercise === index}>
-            <NameRow
-              onChange={handleOnChange}
-              title={"Name"}
-              name={"name"}
-              value={name}
-            />
-            <DataRow
-              onChange={handleOnChange}
-              handleIncrement={() => handleIncrement("series")}
-              handleDecrement={() => handleDecrement("series")}
-              title={"Series"}
-              name={"series"}
-              value={series}
-            />
-            <DataRow
-              onChange={handleOnChange}
-              handleIncrement={() => handleIncrement("reps")}
-              handleDecrement={() => handleDecrement("reps")}
-              title={"Reps"}
-              series={series}
-              name={"reps"}
-              value={reps}
-            />
-            <DataRow
-              onChange={handleOnChange}
-              handleIncrement={() => handleIncrement("weight")}
-              handleDecrement={() => handleDecrement("weight")}
-              title={"Weight"}
-              name={"weight"}
-              value={weight}
-            />
-            <CardRemove>
-              <button onClick={handleRemove}>Remove</button>
-            </CardRemove>
-            <div ref={ref}></div>
-          </CardBottom>
-        </CardTemplate>
-      </>
-    );
-  }
-;
-
+          <DataRow
+            onChange={handleOnChange}
+            handleIncrement={() => handleIncrement("series")}
+            handleDecrement={() => handleDecrement("series")}
+            title={"Series"}
+            name={"series"}
+            value={series}
+          />
+          <DataRow
+            onChange={handleOnChange}
+            handleIncrement={() => handleIncrement("reps")}
+            handleDecrement={() => handleDecrement("reps")}
+            title={"Reps"}
+            series={series}
+            name={"reps"}
+            value={reps}
+          />
+          <DataRow
+            onChange={handleOnChange}
+            handleIncrement={() => handleIncrement("weight")}
+            handleDecrement={() => handleDecrement("weight")}
+            title={"Weight"}
+            name={"weight"}
+            value={weight}
+          />
+          <CardRemove>
+            <button onClick={handleRemove}>Remove</button>
+          </CardRemove>
+          <div ref={ref}></div>
+        </CardBottom>
+      </CardTemplate>
+    </>
+  );
+};
 ExerciseCard.propTypes = {
   index: PropTypes.number
 };

@@ -4,13 +4,14 @@ import "./index.css";
 import App from "./App";
 import ExerciseCard from "./Components/ExerciseCard/ExerciseCard";
 import WorkoutEdit_View from "./Components/ExerciseCard/View";
+import Main from "../src/Components/Workout_View/Main";
 
 import reportWebVitals from "./reportWebVitals";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
-    <WorkoutEdit_View/>
+    <Main/>
   </StrictMode>
 );
 

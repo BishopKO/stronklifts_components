@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useMemo } from "react";
 import styled from "styled-components";
 
 const StyledTemplate = styled.div`
@@ -65,8 +65,11 @@ const RepsComponent = ({ series }) => {
   );
 };
 
-
 const DataRowWithButtons = ({ name, series, title, value, onChange, handleIncrement, handleDecrement }) => {
+
+  useEffect(() => {
+    console.log("render");
+  });
 
   return (
     <StyledTemplate>
